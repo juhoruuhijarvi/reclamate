@@ -1,0 +1,63 @@
+<head>
+  <title>ReclaMATE</title>
+</head>
+
+<body>
+{{> login}}
+
+{{> products}}
+
+{{> addreclamation}}
+
+
+</body>
+
+<template name="login">
+    <div class="navbar navbar-static-top navbar-inverse">
+
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">ReclaMATE</a>
+                <ul class="nav pull-right">
+                    <li>
+                        {{loginButtons}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+
+<template name="products">
+    <h2>All Products</h2>
+    {{#each items}}
+    {{> product}}
+    {{/each}}
+</template>
+
+<template name="product">
+    <div>
+        <blockquote>
+            <p class="lead">{{product}}</p>
+            <p>{{reclamation}}</p>
+            <footer><small>Tags: {{tags}}</small> <small>Created: ({{createdOn}})</small></footer>
+        </blockquote>
+
+        <p class="lead">
+
+        </p>
+    </div>
+</template>
+
+<template name="addreclamation">
+
+    <textarea rows="1" class="input-xxlarge" name="questionText" id="product" placeholder="Product name"></textarea>
+    <br/>
+    <textarea rows="1" class="input-xxlarge" name="questionText" id="tags" placeholder="Tags (whitespace separated)"></textarea>
+    <br />
+    <textarea rows="6" class="input-xxlarge" name="questionText" id="reclamation" placeholder="Reclamation"></textarea>
+    <br />
+    <input type="button" class="btn-info add-question" value="Add Question"/>
+</template>
